@@ -48,7 +48,7 @@ html {
     text-orientation: mixed;
     transform: rotate(180deg);
     line-height: 1;
-    letter-spacing: -0.12em;
+    letter-spacing: -0.10em;
     user-select: none;
     pointer-events: none;
     font-weight: 700;

@@ -84,16 +84,10 @@ function spawnImage(x, y) {
     }, 3000);
 }
 
-document.body.addEventListener('mousedown', (e) => {
-    spawnImage(e.clientX, e.clientY);
-});
+// unified input handler (mouse + touch)
+document.body.addEventListener('pointerdown', (e) => {
+    // 터치 스크롤/줌 같은 기본 동작 방지
+    e.preventDefault();
 
-let lastTap = 0;
-document.body.addEventListener('touchstart', (e) => {
-    const now = Date.now();
-    if (now - lastTap < 300) {
-        e.preventDefault();
-    }
-    lastTap = now;
-    spawnImage(e.touches[0].clientX, e.touches[0].clientY);
+    spawnImage(e.clientX, e.clientY);
 }, { passive: false });
