@@ -88,15 +88,28 @@ html {
     width: 250px;
     height: 250px;
     object-fit: cover;
+    object-position: 50% 20%;
+    /* 얼굴이 위에 오도록 크롭 중심 상단으로 이동 */
+
     /* Star shape clip path */
-    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    clip-path: polygon(50% 0%,
+            61% 35%,
+            98% 35%,
+            68% 57%,
+            79% 91%,
+            50% 70%,
+            21% 91%,
+            32% 57%,
+            2% 35%,
+            39% 35%);
+
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     opacity: 0;
     transform: scale(0.5);
-    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s ease;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+        opacity 0.4s ease;
     pointer-events: none;
     border: none;
-    /* Removed polaroid border for star shape */
 }
 
 .kawaii-img.visible {
