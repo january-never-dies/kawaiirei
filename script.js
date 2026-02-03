@@ -34,6 +34,12 @@ const IMAGES = [
 
 ];
 
+// Preload images for instant "pop"
+IMAGES.forEach(src => {
+    const img = new Image();
+    img.src = src;
+});
+
 const container = document.getElementById('image-container');
 const onboarding = document.querySelector('.main-content');
 let hasInteracted = false;
@@ -70,10 +76,12 @@ function spawnImage(x, y) {
 
     container.appendChild(imgElement);
 
+    // Force a reflow to ensure the browser registers the initial state (scale 0)
+    // before applying the 'visible' class (scale 1).
+    imgElement.offsetHeight;
+
     // Trigger animation
-    requestAnimationFrame(() => {
-        imgElement.classList.add('visible');
-    });
+    imgElement.classList.add('visible');
 
     // Remove after 2 seconds
     setTimeout(() => {

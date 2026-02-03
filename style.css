@@ -19,6 +19,8 @@ html {
     background-color: var(--bg-color);
     font-family: 'Helvetica Neue', 'Helvetica', Arial, sans-serif;
     touch-action: none;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 #app {
@@ -41,6 +43,7 @@ html {
     align-items: flex-start;
     justify-content: center;
     padding-top: 20px;
+    pointer-events: none;
 }
 
 .side-text {
