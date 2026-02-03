@@ -75,19 +75,16 @@ function spawnImage(x, y) {
         imgElement.classList.add('visible');
     });
 
-    // Remove after 3 seconds
+    // Remove after 2 seconds
     setTimeout(() => {
         imgElement.classList.add('fade-out');
         setTimeout(() => {
             imgElement.remove();
         }, 400);
-    }, 3000);
+    }, 2000);
 }
 
 // unified input handler (mouse + touch)
-document.body.addEventListener('pointerdown', (e) => {
-    // 터치 스크롤/줌 같은 기본 동작 방지
-    e.preventDefault();
-
+window.addEventListener('pointerdown', (e) => {
     spawnImage(e.clientX, e.clientY);
-}, { passive: false });
+}, { passive: true });
