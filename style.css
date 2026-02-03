@@ -1,0 +1,129 @@
+:root {
+    --bg-color: #00CCFF;
+    --pink-color: #FF00CC;
+    --white-color: #FFFFFF;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: var(--bg-color);
+    font-family: 'Helvetica Neue', 'Helvetica', Arial, sans-serif;
+}
+
+#app {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 100px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.side-text {
+    font-size: 5rem;
+    color: var(--pink-color);
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+    line-height: 1;
+    letter-spacing: -0.12em;
+    user-select: none;
+    pointer-events: none;
+    font-weight: 700;
+    /* Bold weight for Helvetica */
+}
+
+.main-content {
+    text-align: center;
+    z-index: 10;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+.main-content.hidden {
+    opacity: 0;
+}
+
+.instruction {
+    font-size: 2.5rem;
+    color: var(--white-color);
+    font-weight: 700;
+    user-select: none;
+}
+
+#image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.kawaii-img {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    /* Star shape clip path */
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: scale(0.5);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s ease;
+    pointer-events: none;
+    border: none;
+    /* Removed polaroid border for star shape */
+}
+
+.kawaii-img.visible {
+    opacity: 1;
+    transform: scale(1) rotate(var(--rotation));
+}
+
+.kawaii-img.fade-out {
+    opacity: 0;
+    transform: scale(0.8) rotate(var(--rotation));
+}
+
+@media (max-width: 600px) {
+    .side-text {
+        font-size: 4rem;
+    }
+
+    .sidebar {
+        width: 80px;
+    }
+
+    .instruction {
+        font-size: 1.8rem;
+    }
+
+    .kawaii-img {
+        width: 200px;
+        height: 200px;
+    }
+}
