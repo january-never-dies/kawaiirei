@@ -84,28 +84,19 @@ class Photo {
                 this.x += dx;
                 this.y += dy;
 
-                this.vx = dx * 0.5;
+                this.vx = dx * 0.5; // Drag momentum
                 this.vy = dy * 0.5;
 
                 this.lastPointerX = e.clientX;
                 this.lastPointerY = e.clientY;
 
-                // Visual feedback for drop zone (using photo center for harmony)
+                // Visual feedback for drop zone
                 const dzRect = dropZone.getBoundingClientRect();
-                const centerX = this.x + this.width / 2;
-                const centerY = this.y + this.height / 2;
-
-                const margin = 50; // More forgiving margin
-                const isOver = centerX > dzRect.left - margin && centerX < dzRect.right + margin &&
-                    centerY > dzRect.top - margin && centerY < dzRect.bottom + margin;
-
-                if (isOver) {
+                if (e.clientX > dzRect.left && e.clientX < dzRect.right &&
+                    e.clientY > dzRect.top && e.clientY < dzRect.bottom) {
                     dropZone.classList.add('drag-over');
-                    // Optional: Magnetic snap effect
-                    this.element.style.transform = `scale(1.05) rotate(${this.rotation}deg)`;
                 } else {
                     dropZone.classList.remove('drag-over');
-                    this.element.style.transform = `scale(1) rotate(${this.rotation}deg)`;
                 }
 
                 this.updatePosition();
@@ -117,13 +108,13 @@ class Photo {
                 this.isDragging = false;
                 this.element.releasePointerCapture(e.pointerId);
                 this.element.style.zIndex = '';
-                this.element.style.transform = ''; // Clear magnetic scale
 
                 const dzRect = dropZone.getBoundingClientRect();
                 const centerX = this.x + this.width / 2;
                 const centerY = this.y + this.height / 2;
 
-                const margin = 50; // Matches drag-over feedback
+                // Forgiving drop detection (using photo center + small buffer)
+                const margin = 20;
                 if (centerX > dzRect.left - margin && centerX < dzRect.right + margin &&
                     centerY > dzRect.top - margin && centerY < dzRect.bottom + margin) {
                     showPreview(this.url);

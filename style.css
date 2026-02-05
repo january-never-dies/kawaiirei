@@ -115,8 +115,14 @@ html {
     transform-origin: center center;
     transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
         opacity 0.4s ease;
-    pointer-events: none;
-    will-change: transform, opacity;
+    pointer-events: auto;
+    /* Enable interaction */
+    cursor: grab;
+    will-change: transform, opacity, left, top;
+}
+
+.kawaii-img:active {
+    cursor: grabbing;
 }
 
 .kawaii-img.visible {
@@ -146,4 +152,123 @@ html {
         width: 200px;
         height: 200px;
     }
+}
+
+/* Drop Zone Styles */
+.drop-zone {
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+    width: 200px;
+    height: 200px;
+    background-color: var(--pink-color);
+    clip-path: polygon(50% 0%,
+            61% 35%,
+            98% 35%,
+            68% 57%,
+            79% 91%,
+            50% 70%,
+            21% 91%,
+            32% 57%,
+            2% 35%,
+            39% 35%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    pointer-events: auto;
+}
+
+.drop-zone.drag-over {
+    transform: scale(1.15);
+}
+
+@media (max-width: 600px) {
+    .drop-zone {
+        width: 150px;
+        height: 150px;
+        right: 15px;
+        bottom: 15px;
+    }
+}
+
+/* Modal Styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.modal.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background-color: var(--white-color);
+    padding: 15px;
+    border-radius: 12px;
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.modal-content img {
+    max-width: 100%;
+    max-height: 70vh;
+    border-radius: 6px;
+    object-fit: contain;
+}
+
+.close-btn {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--pink-color);
+    line-height: 1;
+    z-index: 10;
+}
+
+#download-btn {
+    background-color: var(--pink-color);
+    color: var(--white-color);
+    text-decoration: none;
+    padding: 10px 20px;
+    /* Reduced padding (approx 0.7x) */
+    border-radius: 30px;
+    font-size: 0.85rem;
+    /* Reduced font size */
+    font-weight: 900;
+    transition: transform 0.2s;
+    text-transform: uppercase;
+}
+
+#download-btn:hover {
+    transform: scale(1.05);
 }
