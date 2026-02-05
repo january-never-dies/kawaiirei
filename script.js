@@ -1,12 +1,12 @@
 const IMAGES = [
     "assets/kawaii_0.jpg", "assets/kawaii_1.jpg", "assets/kawaii_2.jpg", "assets/kawaii_3.jpg",
     "assets/kawaii_4.jpg", "assets/kawaii_5.jpg", "assets/kawaii_22.jpg", "assets/kawaii_24.jpg",
-    "assets/kawaii_26.jpg", "assets/kawaii_6.jpeg", "assets/kawaii_7.jpeg", "assets/kawaii_8.jpeg",
-    "assets/kawaii_9.jpeg", "assets/kawaii_10.jpeg", "assets/kawaii_11.jpeg", "assets/kawaii_12.jpeg",
-    "assets/kawaii_13.jpeg", "assets/kawaii_14.jpeg", "assets/kawaii_15.jpeg", "assets/kawaii_16.jpeg",
-    "assets/kawaii_17.jpeg", "assets/kawaii_18.jpeg", "assets/kawaii_19.jpeg", "assets/kawaii_20.jpeg",
-    "assets/kawaii_21.jpeg", "assets/kawaii_23.jpeg", "assets/kawaii_25.jpeg", "assets/kawaii_28.jpeg",
-    "assets/kawaii_29.jpeg", "assets/kawaii_30.jpeg", "assets/kawaii_31.jpeg"
+    "assets/kawaii_26.jpg", "assets/kawaii_6.jpg", "assets/kawaii_7.jpg", "assets/kawaii_8.jpg",
+    "assets/kawaii_9.jpg", "assets/kawaii_10.jpg", "assets/kawaii_11.jpg", "assets/kawaii_12.jpg",
+    "assets/kawaii_13.jpg", "assets/kawaii_14.jpg", "assets/kawaii_15.jpg", "assets/kawaii_16.jpg",
+    "assets/kawaii_17.jpg", "assets/kawaii_18.jpg", "assets/kawaii_19.jpg", "assets/kawaii_20.jpg",
+    "assets/kawaii_21.jpg", "assets/kawaii_23.jpg", "assets/kawaii_25.jpg", "assets/kawaii_28.jpg",
+    "assets/kawaii_29.jpg", "assets/kawaii_30.jpg", "assets/kawaii_31.jpg"
 ];
 
 // Preload images
